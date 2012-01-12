@@ -1,0 +1,24 @@
+<h2>Liste des observations de bactéries</h2>
+<table>
+<tr>
+    <th>id observations</th>
+    <th>Plantes hôtes</th>
+    <th>Organismes (bactéries)</th>
+    <th>Commentaires</th>
+    <th>Dates d'observation</th>
+    <th>Pays</th>
+    <th>Etats de validation</th>
+</tr>
+
+{% for d in data %}
+    <tr>
+        <td>{{ d.observation }}</td>
+        <td>{{ d.host }}</td>
+        <td>{{ d.nom_scientifique }}</td>
+        <td>{{ d.commentaire_organisme }}</td>
+        <td>{{ d.date_observation }}</td>
+        <td>{{ d.nom_pays }}</td>
+        <td>{{ d.label_validation_state }}</td>        
+    </tr>
+{% endfor %}
+</table>

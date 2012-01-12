@@ -1,0 +1,203 @@
+#bio-agri {
+    border-right-width: 20px;
+    margin-right: 5%;
+    padding-left: 35px;
+}
+
+/*banners gradient generated with colorzilla*/
+div#gradient {
+    background: -moz-linear-gradient(top,  rgba(54,123,18,1) 0%, rgba(54,123,18,1) 1%, rgba(56,135,21,0.79) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(54,123,18,1)), color-stop(1%,rgba(54,123,18,1)), color-stop(100%,rgba(56,135,21,0.79))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(54,123,18,1) 0%,rgba(54,123,18,1) 1%,rgba(56,135,21,0.79) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(54,123,18,1) 0%,rgba(54,123,18,1) 1%,rgba(56,135,21,0.79) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(54,123,18,1) 0%,rgba(54,123,18,1) 1%,rgba(56,135,21,0.79) 100%); /* IE10+ */
+    background: linear-gradient(top,  rgba(54,123,18,1) 0%,rgba(54,123,18,1) 1%,rgba(56,135,21,0.79) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#367b12', endColorstr='#c9388715',GradientType=0 ); /* IE6-9 */
+    clear: both;
+}
+
+/*menu*/
+#menu {
+    float: left;
+    width: 16%;
+}
+
+#menu ul{
+    padding-left: 0px;
+    margin-top:0px;
+}
+
+#menu ul li {
+    display: block;
+    width: 7em;
+    background-color: #736653;
+    padding-left: 0.5em;
+    height: 2em;
+    padding-right: 0.5em;
+    padding-top: 1em;
+}
+
+#menu ul li a {
+    color: #43BFEB;
+    text-decoration: none;
+}
+
+#menu ul li:hover > a {
+    color: #FDCA00;
+}
+
+#menu ul li ul{
+    display:none;
+}
+
+#menu ul li ul li {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em
+    
+}
+
+#menu ul li:hover > ul{
+    display:block;
+    background-color: #736653;
+    margin-left: 7.5em;
+    margin-top: -1.8em;
+    width: 10em;
+    z-index: 2;
+}
+
+#menu ul li:hover > ul a {
+    color: white;
+    font-size: 0.8em;
+}
+
+#menu ul li:hover > ul li:hover > a {
+    color: #FDCA00;
+}
+
+h3 {
+    background-color: #736653;
+    border: 1px solid #000000;
+    color: #FFFFFF;
+    font-family: Verdana;
+    font-size: 14pt;
+    font-weight: bold;
+    height: 25px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    text-align: center;
+}
+
+#content {
+    background: none repeat scroll 0 0 #F0FFF0;
+    min-height: 500px;
+}
+
+tbody tr th {
+    text-align: left;
+}
+
+tbody tr td {
+    padding-left: 10px;
+}
+
+tbody tr td ul{
+    padding-left: 0px;
+}
+
+/*countries radio buttons*/
+li {
+    list-style-type: none;
+}
+
+div #radio_countries div.countries {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    width: 200px;
+}
+
+div #Comoros {
+    background-image: url("../images/prpv/icones/drapeaux/drapeau_comores.jpg");
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+div #Madagascar{
+    background-image: url("../images/prpv/icones/drapeaux/drapeau_mada.jpg");
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+div #Mauritius {
+    background-image: url("../images/prpv/icones/drapeaux/drapeau_maurice.jpg");
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+div #Reunion {
+    background-image: url("../images/prpv/icones/drapeaux/drapeau_france.jpg");
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+div #Seychelles {
+    background-image: url("../images/prpv/icones/drapeaux/drapeau_seychelles.jpg");
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+/* Organism types radio buttons */
+div.types {
+    height: 35px;
+    width: 220px;
+    padding-top: 7px;
+}
+
+div #organisme-nuisible {
+    background-image: url("../images/nuisiblerouge.gif");
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+div #adventice {
+    background-image: url("../images/adventice.png");
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+div #organisme-auxiliaire {
+    background-image: url("../images/auxi.gif");
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+
+
+input.submit{
+    background: url("../images/accept.png") no-repeat scroll left center;
+    font-size: 0.8em;
+    padding-bottom: 2px;
+    padding-left: 20px;
+    margin-top: 2em;
+}
+
+table.paleblue + ul.pagination{
+    margin-bottom: 5px;
+}
+
+
+/*errors*/
+ul.errorlist {
+    margin: 0;
+    padding: 0;
+}
+.errorlist li {
+    background-color: red;
+    color: white;
+    display: block;
+    font-size: 10px;
+    margin: 0 0 3px;
+    padding: 4px 5px;
+}
+    
+

@@ -1,0 +1,83 @@
+{% load sitetree %} 
+{% load django_tables2 %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}django_tables2/themes/paleblue/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/global.css" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/search_observations.css" />
+</head>
+<body>
+    
+    <div id='container'>
+        {% include 'banner.html' %}
+        
+        <h3>Recherche d'observations</h3>
+        {% sitetree_breadcrumbs from "MENU" %}
+        <span id="menu">
+            {% sitetree_menu from "MENU" include "trunk,this-children" %}
+        </span>
+        <div id="content">
+             <div id="choices">   
+                
+            
+                <form action="" method="GET">  
+                   
+                    <table>
+                        
+                        <tbody>
+                            <tr>
+                                <th>
+                                    <label for="id_countries">Pays:</label>
+                                </th>
+                                <td>
+                                    <div id="radio_countries">
+                                        {% for choice in form.countries.field.choices %}
+                                             <div id="{{ choice.1 }}" class="{{ form.countries.html_name }}"> 
+                                                <label for="id_{{ choice.1 }}">
+                                                    <input type="radio"
+                                                        id="{{ choice.1 }}"
+                                                        value="{{ choice.0 }}"
+                                                        name="{{ form.countries.html_name }}" />
+                                                        {{ choice.1 }}
+                                            
+                                                </label>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <label for="types">Type d'organismes:</label>
+                                </th>
+                                <td>
+                                    {{ form.types }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <label for="types">Etat de validation:</label>
+                                </th>
+                                <td>
+                                    {{ form.valid }}
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                    <input type="submit" value="Valider" class='submit' style='margin-left: 33%;'>
+                </form>
+                 Il y a actuellement {{ nb }} observation(s) enregistrée(s) dans la base PRPV
+            </div>
+            <div id="results"/>
+                {% if table %}
+                   
+                    <br> <br>
+                    {% render_table table %}
+                {% endif %}
+            </div>
+        </div>
+        {% include 'footer.html' %}
+    </div>
+</body>
+</html>

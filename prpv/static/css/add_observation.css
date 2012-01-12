@@ -1,0 +1,54 @@
+#container {
+    background-color: #F0FFF0;
+}
+
+#content {
+    float: left;
+    width: 80%;
+}
+
+#id_obs_comments, #id_organism_comments {
+    height: 79px;
+    width: 650px;
+}
+
+tr#organism_dvlpmt td ul {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+tr#organism_dvlpmt td ul li {
+    float: left;
+    margin-bottom: 8px;
+    margin-right: 8px;
+}
+
+
+.ui-accordion-icons .ui-accordion-header a {
+    background-color: #DCD3C5 !important;
+    color: #0098DA !important;
+}
+
+.ui-accordion {
+    font-size: 1em !important;
+}
+
+.ui-accordion-content {
+    background-color: #F0FFF0 !important;
+}
+
+.ui-widget-content {
+    background-color: #F0FFF0 !important;
+    background-image: none !important;
+}
+
+ul.ui-autocomplete {
+    max-height: 15em;
+    overflow-y: auto;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default,
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    border: 1px solid #DDDDDD !important;
+}

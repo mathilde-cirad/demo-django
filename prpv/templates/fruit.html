@@ -1,0 +1,40 @@
+<html>
+    <head>
+        {% block extra-css %}{% endblock %}
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/ui-lightness/jquery-ui.css" type="text/css" media="screen">
+        <script>
+        $(function() {
+            $('.dateinput').datepicker({
+                changeMonth: true,
+                changeYear: true
+            });            
+            data = {{ names|safe }};
+            $( "#fruits" ).autocomplete({
+                source: data
+            });
+            $( "#accordion" ).accordion({
+                autoHeight: false,
+                navigation: true
+            });
+            
+        });
+        </script>
+    </head>
+    <body>
+        <div id="content">
+            <div id="accordion" class="demo">
+                <h4><a href="#">Contexte</a></h4>
+                <div>
+                    <label for="fruits">Tags: </label>
+                    <input id="fruits" />
+                    <br>
+                    Date:
+                   <input id="id_date_obs" class="dateinput" type="text" size="10" name="date_obs">
+               </div>
+            </div><!-- End demo -->
+        </div>
+    </body>
+</html>

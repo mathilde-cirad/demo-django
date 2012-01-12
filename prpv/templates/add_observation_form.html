@@ -1,0 +1,205 @@
+{% load sitetree %} 
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/add_observation.css" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/global.css" />
+    
+    <!--link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/redmond/jquery-ui.css" rel="Stylesheet" /> -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/ui-lightness/jquery-ui.css" type="text/css" media="screen"/>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+    
+    <!-- datepicker and accordion stuff JQUERY UI-->
+   
+    <script type="text/javascript"> 
+        $(function(){
+            $(".calendar").datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+ 
+        /**** accordion ******/
+            $( "#accordion" ).accordion({
+                autoHeight: false,
+                navigation: true
+            });
+            
+        /**** Autocomplete *****/
+             scientific_names = {{ names|safe }};
+             $( "#id_organism_name" ).autocomplete({
+                source: scientific_names
+            });
+        
+        });
+
+	</script>
+</script>
+
+</head>
+<body>
+     <div id='container'>
+        {% include 'banner.html' %}
+        
+        <h3>Ajout d'observation d'organisme isolé</h3>
+        {% sitetree_breadcrumbs from "MENU" %}
+        <span id="menu">
+            {% sitetree_menu from "MENU" include "trunk,this-children" %}
+        </span>
+        <div id="content">
+            <form action="" method="POST">  
+     
+                <div id="accordion">
+                    <h4><a href="#">Contexte</a></h4>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <label for="id_lot">Référence Lot:</label>
+                                    </th>
+                                    <td> 
+                                        {{ form.lot }}
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <label for="id_date_obs">Date de l'observation:</label>
+                                    </th>
+                                    <td> 
+                                        {{ form.date_obs }}
+                                    </td> 
+                                </tr>
+                                    <th>
+                                        <label for="id_countries">Pays:</label>
+                                    </th>
+                                    <td>
+                                        <div id="radio_countries">
+                                            {% for choice in form.country.field.choices %}
+                                                 <div id="{{ choice.1 }}" class="countries"> 
+                                                    <label for="id_{{ choice.1 }}">
+                                                        <input type="radio"
+                                                            id="{{ choice.1 }}"
+                                                            value="{{ choice.0 }}"
+                                                            name="{{ form.countries.html_name }}" />
+                                                            {{ choice.1 }}                                            
+                                                    </label>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <label for="id_region">Région:</label>
+                                    </th>
+                                    <td> 
+                                        {{ form.region }}
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <label for="id_city">Ville:</label>
+                                    </th>
+                                    <td> 
+                                        {{ form.city }}
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <label for="id_obs_comments">Commentaires:</label>
+                                    </th>
+                                    <td> 
+                                        {{ form.obs_comments }}
+                                    </td> 
+                                </tr>
+                            </tbody>
+                        </table>
+                    <h4><a href="#">Organisme observé</a></h4>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <label for="id_obs_comm">Nom de l'organisme:</label>
+                                    </th>
+                                    <td> 
+                                        {{ form.organism_name }}
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <label for="id_organism_type">Organisme observé en tant que:</label>
+                                    </th>
+                                    <td> 
+                                        <div id="radio_organism_type">
+                                            {% for choice in form.organism_type.field.choices %}
+                                                 <div id="{{ choice.2 }}" class="types"> 
+                                                    <label for="id_{{ choice.0 }}">
+                                                        <input type="radio"
+                                                            id="{{ choice.2 }}"
+                                                            value="{{ choice.0 }}"
+                                                            name="{{ form.countries.html_name }}" />
+                                                            {{ choice.1 }}                                            
+                                                    </label>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                        
+                                    </td> 
+                                </tr>
+                                <tr id='organism_dvlpmt'> 
+                                    <th>
+                                        <label for="id_organism_dvlpmt">Stade de développement:</label>
+                                    </th>
+                                    <td> 
+                                        {{ form.organism_dvlpmt }}
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <label for="id_user_determination">Déterminateur:</label>
+                                    </th>
+                                    <td> 
+                                        {{ form.user_determination }}
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <label for="id_date_determination">Date de détermination:</label>
+                                    </th>
+                                    <td> 
+                                        {{ form.date_determination }}
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <label for="id_method_determination">Méthode de détermination:</label>
+                                    </th>
+                                    <td> 
+                                        {{ form.method_determination }}
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <label for="id_organism_comments">Commentaires:</label>
+                                    </th>
+                                    <td> 
+                                        {{ form.organism_comments }}
+                                    </td> 
+                                </tr>
+                                
+                                </tr>
+                                </tbody>
+                            </table>
+                            <h4><a href="#">Interception</a></h4>
+                                <div id='interception'>
+                                <label for="id_interception">Observation d'interception:</label>
+                                {{ form.interception }}
+                                </div>
+                             
+                </div>
+            </form>
+         </div>   
+        {% include 'footer.html' %}
+    </div>
+</body>
+</html>
